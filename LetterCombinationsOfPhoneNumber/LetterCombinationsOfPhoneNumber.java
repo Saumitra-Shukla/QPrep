@@ -43,29 +43,33 @@ public class LetterCombinationsOfPhoneNumber {
 
     // Implement your solution by completing the below function
     public List<String> letterCombinations(String digits) {
-       // int d = Integer.parseInt(digits);
-
-        String d1 = Character.toString(digits.charAt(0));
-        List<String> num1 = letters(Integer.parseInt(d1));
-        List<String> pat = new ArrayList<String>();
-        for(int i = 0; i < num1.size(); i++) {
-            String ans = num1.get(i);
-            pat.add(ans);
-        }
-
-        for (int j=1; j<digits.length(); j++) {
-            String d = Character.toString(digits.charAt(j));
-            List<String> num = letters(Integer.parseInt(d));
-            for(int i = 0; i < num.size(); i++) {
-                String ans =pat.get(i) + num.get(i);
-                pat.set(i,ans);
-            }
-    
-        }
-
-        
-        return pat;
-    }
+        // int d = Integer.parseInt(digits);
+ 
+         String d1 = Character.toString(digits.charAt(0));
+         List<String> num1 = letters(Integer.parseInt(d1));
+         List<String> pat_d = new ArrayList<String>();
+         for(int i = 0; i < num1.size(); i++) {
+             String ans = num1.get(i);
+             pat_d.add(ans);
+         }
+ 
+         for (int j=1; j<digits.length(); j++) {
+             String d = Character.toString(digits.charAt(j));
+             List<String> num = letters(Integer.parseInt(d));
+             List<String> pat = new ArrayList<String>();
+             for(int i = 0; i < num.size(); i++) {
+                 for(int k = 0; k < pat_d.size(); k++) {
+                     String ans = pat_d.get(k) + num.get(i);
+                     pat.add(ans);
+                 }
+             }
+             pat_d=pat;
+         
+         }
+ 
+         
+         return pat_d;
+     }
 
     public static void main(String[] args) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
