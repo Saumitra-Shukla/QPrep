@@ -26,7 +26,7 @@ public class LetterCombinationsOfPhoneNumber {
         b = limit(d-1);
         char begin = (char) (b + 97);
         List<String> pat = new ArrayList<String>(); 
-        for(char i = begin; i <= end; ++i) {
+        for(char i = begin; i < end; ++i) {
             pat.add(Character.toString(i));
         }
         return pat;
