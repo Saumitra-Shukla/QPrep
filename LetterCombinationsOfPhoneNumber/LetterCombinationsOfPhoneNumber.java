@@ -44,16 +44,23 @@ public class LetterCombinationsOfPhoneNumber {
     // Implement your solution by completing the below function
     public List<String> letterCombinations(String digits) {
        // int d = Integer.parseInt(digits);
+
         String d1 = Character.toString(digits.charAt(0));
-        String d2 = Character.toString(digits.charAt(1));
         List<String> num1 = letters(Integer.parseInt(d1));
-        List<String> num2 = letters(Integer.parseInt(d2));
         List<String> pat = new ArrayList<String>();
         for(int i = 0; i < num1.size(); i++) {
-            for (int j=0; j < num2.size(); j++) {
-                String ans = num1.get(i) + num2.get(j);
-                pat.add(ans);
+            String ans = num1.get(i);
+            pat.add(ans);
+        }
+
+        for (int j=1; j<digits.length(); j++) {
+            String d = Character.toString(digits.charAt(j));
+            List<String> num = letters(Integer.parseInt(d));
+            for(int i = 0; i < num.size(); i++) {
+                String ans =pat.get(i) + num.get(i);
+                pat.set(i,ans);
             }
+    
         }
 
         
