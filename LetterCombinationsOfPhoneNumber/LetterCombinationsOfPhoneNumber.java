@@ -7,15 +7,24 @@ public class LetterCombinationsOfPhoneNumber {
 
     public int limit(int d) {
         int ans = (d * 2) + (d - 3);
-        if (d > 6) {
-            ans++;
+        try {
+            
+            if (d > 6) {
+                ans++;
+            }
+            if (d > 8) {
+                ans++;
+            }
+            /*
+            if (d < 2) {
+                ans = 0;
+            } 
+            */
         }
-        if (d > 8) {
-            ans++;
+        catch (Exception e) {
+            System.out.println(e);
         }
-        if (d < 2) {
-            ans = 0;
-        } 
+        
         return ans;
     }
 
@@ -34,7 +43,7 @@ public class LetterCombinationsOfPhoneNumber {
 
     // Implement your solution by completing the below function
     public List<String> letterCombinations(String digits) {
-        int d = Integer.parseInt(digits);
+       // int d = Integer.parseInt(digits);
         String d1 = Character.toString(digits.charAt(0));
         String d2 = Character.toString(digits.charAt(1));
         List<String> num1 = letters(Integer.parseInt(d1));
