@@ -46,24 +46,15 @@ class MergeIntervals {
 
 		return ans;
 	} 
-
+    
     public int[][] merge(int[][] intervals) {
         
-        List<Interval> interv = new ArrayList<Interval>();
-
-        for(int i = 0; i < intervals.length; i++ ) {
-            interv.add(new Interval(intervals[i][0], intervals[i][1]));
-        }
-        interv = merger(sort(interv), 1);
+        Interval arr[]=new Interval[intervals.length];
         
-        int [][] ans = new int[interv.size()][2];
-        for(int i1 = 0; i1 < interv.size(); i1++) {
-            ans[i1][0] = interv.get(i1).begin;
-            ans[i1][1] = interv.get(i1).end;
+        for(int i=0; i<intervals.length; i++) {
+            arr[i]=new Interval(intervals[i][0],intervals[i][1]);
         }
-
-
-        return ans;
+        return merger(arr);
     }
 
 	public static void main(String[] args) {
