@@ -14,8 +14,8 @@ class MergeIntervals {
     }
     public List<Interval> sort(List<Interval> interv) {
         
-        for(int i = 0; i < interv.size-1; i++) {
-            for(int j = 0; j < interv.size-1-i; j++) {
+        for(int i = 0; i < interv.size()-1; i++) {
+            for(int j = 0; j < interv.size()-1-i; j++) {
                 if(interv.get(j).begin > interv.get(j + 1).begin) {
                     Interval swp = interv.get(j);
                     interv.set(j, interv.get(j + 1));
@@ -33,7 +33,7 @@ class MergeIntervals {
             if(interv.get(i-1).end > interv.get(i).begin) {
                 int begin = Math.min(interv.get(i-1).begin, interv.get(i).begin);
                 int end = Math.max(interv.get(i-1).end, interv.get(i).end);
-                Intervals temp = new Interval(begin, end);
+                Interval temp = new Interval(begin, end);
                 interv.set(i-1, temp);
                 interv.remove(i);
             }
@@ -53,8 +53,8 @@ class MergeIntervals {
         
         int [][] ans = new int[inter.size()][2];
         for(int i1 = 0; i1 < interv.size(); i1++) {
-            ans[i][0] = interv.get(i).begin;
-            ans[i][1] = inter.get(i).end;
+            ans[i1][0] = interv.get(i1).begin;
+            ans[i1][1] = interv.get(i1).end;
         }
 
 
