@@ -11,6 +11,18 @@ class MergeIntervals {
             begin = b;
             end = e;
         }
+        public void print()
+        {
+            System.out.print(begin+","+end +"   ");
+        }
+    }
+    
+    public void printer(List<Interval> interv)
+    {
+        for(Interval i : interv)
+        {
+            i.print();
+        }
     }
     public List<Interval> sort(List<Interval> interv) {
         
@@ -27,53 +39,38 @@ class MergeIntervals {
         return interv;
     }
 
-    public static void sortbyColumn(int arr[][], int col) 
-    { 
-        
-        Arrays.sort(arr, new Comparator<int[]>() { 
+    public List<Interval> merger(List<Interval> interv, int index) {
+        int i = index;
+        if(interv.size() == index) {
+            //System.out.println("\n last   ");
             
-          @Override              
-          
-          public int compare(final int[] entry1,  
-                             final int[] entry2) { 
-   
-            if (entry1[col] > entry2[col]) 
-                return 1; 
-            else
-                return -1; 
-          } 
-        });
-    }
-
-
-    public List<Interval> merger(List<Interval> interv) {
-        
-        int idx = 0;
-        for (int i=1; i<interv.size(); i++)  
-        {  
-        
-            if (interv.get(idx).end >=  interv.get(i).begin)  
-            {  
-                   // Merge previous and current Intervals  
-                interv.get(idx).end = Math.max(interv.get(idx).end, interv.get(i).end);  
-                interv.get(idx).begin = Math.min(interv.get(idx).begin, interv.get(i).begin);  
-            }  
-            else { 
-                interv.set(i, interv.get(i));  
-                idx++; 
-            }     
+            return interv;
+            
         }
-        return interv; 
+        if(interv.get(i - 1).end >= interv.get(i).begin) {
+            int begin = Math.min(interv.get(i-1).begin, interv.get(i).begin);
+            int end = Math.max(interv.get(i-1).end, interv.get(i).end);
+            Interval temp = new Interval(begin, end);
+            interv.set(i-1, temp);
+            interv.remove(i);
+            //System.out.print("\n i    ");
+            //printer(interv); 
+            return merger(interv, i);
+            
+        }
+        //System.out.print("\n i+1   ");
+        //printer(interv);
+        return merger(interv, i+1);
     }
 
     public int[][] merge(int[][] intervals) {
         
         List<Interval> interv = new ArrayList<Interval>();
-        sortbyColumn(intervals, 0);
+
         for(int i = 0; i < intervals.length; i++ ) {
             interv.add(new Interval(intervals[i][0], intervals[i][1]));
         }
-        interv = merger(interv);
+        interv = merger(sort(interv), 1);
         
         int [][] ans = new int[interv.size()][2];
         for(int i1 = 0; i1 < interv.size(); i1++) {
@@ -96,6 +93,7 @@ class MergeIntervals {
         scanner.close();
 
         int[][] results = new MergeIntervals().merge(nums);
+        //System.out.println("*************************");
         for (int i = 0; i < results.length; ++i)
             System.out.println(String.valueOf(results[i][0]) + " " + String.valueOf(results[i][1]));
     }
