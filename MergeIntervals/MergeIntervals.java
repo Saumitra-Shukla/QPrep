@@ -27,19 +27,20 @@ class MergeIntervals {
         return interv;
     }
 
-    public List<Interval> merger(List<Interval> interv) {
-        
-        for(int i = 1; i < interv.size(); i++){
-            if(interv.get(i-1).end >= interv.get(i).begin) {
-                int begin = Math.min(interv.get(i-1).begin, interv.get(i).begin);
-                int end = Math.max(interv.get(i-1).end, interv.get(i).end);
-                Interval temp = new Interval(begin, end);
-                interv.set(i-1, temp);
-                interv.remove(i);
-            }
+    public List<Interval> merger(List<Interval> interv, int index) {
+        int i = index;
+        if(interv.size() == 1 + index) {
+            return internv;
         }
-        return interv;
-        
+        if(interv.get(i - 1).end >= interv.get(i).begin) {
+            int begin = Math.min(interv.get(i-1).begin, interv.get(i).begin);
+            int end = Math.max(interv.get(i-1).end, interv.get(i).end);
+            Interval temp = new Interval(begin, end);
+            interv.set(i-1, temp);
+            interv.remove(i);
+            return merger(interv, i);
+        }
+        return merger(interv, i+1);
     }
 
     public int[][] merge(int[][] intervals) {
@@ -49,7 +50,7 @@ class MergeIntervals {
         for(int i = 0; i < intervals.length; i++ ) {
             interv.add(new Interval(intervals[i][0], intervals[i][1]));
         }
-        interv = merger(sort(interv));
+        interv = merger(sort(interv), 1);
         
         int [][] ans = new int[interv.size()][2];
         for(int i1 = 0; i1 < interv.size(); i1++) {
