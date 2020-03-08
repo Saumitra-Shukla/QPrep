@@ -30,7 +30,7 @@ class MergeIntervals {
     public List<Interval> merger(List<Interval> interv) {
         
         for(int i = 1; i < interv.size(); i++){
-            if(interv.get(i-1).end > interv.get(i).begin) {
+            if(interv.get(i-1).end >= interv.get(i).begin) {
                 int begin = Math.min(interv.get(i-1).begin, interv.get(i).begin);
                 int end = Math.max(interv.get(i-1).end, interv.get(i).end);
                 Interval temp = new Interval(begin, end);
