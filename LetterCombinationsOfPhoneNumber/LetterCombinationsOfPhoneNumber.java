@@ -15,11 +15,11 @@ public class LetterCombinationsOfPhoneNumber {
             if (d > 8) {
                 ans++;
             }
-            /*
+            
             if (d < 2) {
                 ans = 0;
             } 
-            */
+            
         }
         catch (Exception e) {
             System.out.println(e);
