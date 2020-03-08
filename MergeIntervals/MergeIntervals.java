@@ -27,6 +27,27 @@ class MergeIntervals {
         return interv;
     }
 
+    public static void sortbyColumn(int arr[][], int col) 
+    { 
+        // Using built-in sort function Arrays.sort 
+        Arrays.sort(arr, new Comparator<int[]>() { 
+            
+          @Override              
+          // Compare values according to columns 
+          public int compare(final int[] entry1,  
+                             final int[] entry2) { 
+  
+            // To sort in descending order revert  
+            // the '>' Operator 
+            if (entry1[col] > entry2[col]) 
+                return 1; 
+            else
+                return -1; 
+          } 
+        });  // End of function call sort(). 
+    }
+
+
     public List<Interval> merger(List<Interval> interv, int index) {
         int i = index;
         if(interv.size() == index) {
@@ -46,11 +67,11 @@ class MergeIntervals {
     public int[][] merge(int[][] intervals) {
         
         List<Interval> interv = new ArrayList<Interval>();
-
+        sortbyColumn(intervals, 0);
         for(int i = 0; i < intervals.length; i++ ) {
             interv.add(new Interval(intervals[i][0], intervals[i][1]));
         }
-        interv = merger(sort(interv), 1);
+        //interv = merger(sort(interv), 1);
         
         int [][] ans = new int[interv.size()][2];
         for(int i1 = 0; i1 < interv.size(); i1++) {
