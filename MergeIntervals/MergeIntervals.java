@@ -73,7 +73,7 @@ class MergeIntervals {
         for(int i = 0; i < intervals.length; i++ ) {
             interv.add(new Interval(intervals[i][0], intervals[i][1]));
         }
-        interv = merger(interv, 1);
+        interv = merger(interv);
         
         int [][] ans = new int[interv.size()][2];
         for(int i1 = 0; i1 < interv.size(); i1++) {
