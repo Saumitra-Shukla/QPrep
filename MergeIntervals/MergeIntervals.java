@@ -29,39 +29,41 @@ class MergeIntervals {
 
     public static void sortbyColumn(int arr[][], int col) 
     { 
-        // Using built-in sort function Arrays.sort 
+        
         Arrays.sort(arr, new Comparator<int[]>() { 
             
           @Override              
-          // Compare values according to columns 
+          
           public int compare(final int[] entry1,  
                              final int[] entry2) { 
-  
-            // To sort in descending order revert  
-            // the '>' Operator 
+   
             if (entry1[col] > entry2[col]) 
                 return 1; 
             else
                 return -1; 
           } 
-        });  // End of function call sort(). 
+        });
     }
 
 
-    public List<Interval> merger(List<Interval> interv, int index) {
-        int i = index;
-        if(interv.size() == index) {
-            return interv;
+    public List<Interval> merger(List<Interval> interv) {
+        
+        int idx = 0;
+        for (int i=1; i<interv.size(); i++)  
+        {  
+        
+            if (interv.get(idx).end >=  interv.get(i).begin)  
+            {  
+                   // Merge previous and current Intervals  
+                interv.get(idx).end = Math.max(interv.get(idx).end, interv.get(i).end);  
+                interv.get(idx).begin = Math.min(interv.get(idx).begin, interv.get(i).begin);  
+            }  
+            else { 
+                interv.set(i, interv.get(i));  
+                idx++; 
+            }     
         }
-        if(interv.get(i - 1).end >= interv.get(i).begin) {
-            int begin = Math.min(interv.get(i-1).begin, interv.get(i).begin);
-            int end = Math.max(interv.get(i-1).end, interv.get(i).end);
-            Interval temp = new Interval(begin, end);
-            interv.set(i-1, temp);
-            interv.remove(i);
-            return merger(interv, i);
-        }
-        return merger(interv, i+1);
+        return interv; 
     }
 
     public int[][] merge(int[][] intervals) {
