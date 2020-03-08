@@ -51,7 +51,7 @@ class MergeIntervals {
         }
         interv = merger(sort(interv));
         
-        int [][] ans = new int[inter.size()][2];
+        int [][] ans = new int[interv.size()][2];
         for(int i1 = 0; i1 < interv.size(); i1++) {
             ans[i1][0] = interv.get(i1).begin;
             ans[i1][1] = interv.get(i1).end;
