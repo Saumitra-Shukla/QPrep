@@ -57,9 +57,9 @@ public class LetterCombinationsOfPhoneNumber {
              String d = Character.toString(digits.charAt(j));
              List<String> num = letters(Integer.parseInt(d));
              List<String> pat = new ArrayList<String>();
-             for(int i = 0; i < num.size(); i++) {
-                 for(int k = 0; k < pat_d.size(); k++) {
-                     String ans = pat_d.get(k) + num.get(i);
+             for(int i = 0; i < pat_d.size(); i++) {
+                 for(int k = 0; k < num.size(); k++) {
+                     String ans = pat_d.get(i) + num.get(k);
                      pat.add(ans);
                  }
              }
