@@ -7,7 +7,7 @@ class MergeIntervals {
     class Interval {
         int begin;
         int end;
-        Intervals(int b, int e) {
+        Interval(int b, int e) {
             begin = b;
             end = e;
         }
