@@ -29,7 +29,7 @@ class MergeIntervals {
 
     public List<Interval> merger(List<Interval> interv, int index) {
         int i = index;
-        if(interv.size() == 1 + index) {
+        if(interv.size() == index) {
             return interv;
         }
         if(interv.get(i - 1).end >= interv.get(i).begin) {
