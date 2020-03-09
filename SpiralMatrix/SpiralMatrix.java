@@ -3,8 +3,61 @@ import java.util.*;
 
 class SpiralMatrix {
     // Implement your solution by completing the below function
+
+    public List<Integer> goup(int[][] matrix, int depth, int m, int n) {
+        List<Integer> up = new ArrayList<Integer>();
+        for(int i = m - 2 - depth; i > 1 + depth; i--) {
+            up.add(matrix[i][depth]);            
+        }
+        return up;
+    }
+    public List<Integer> godown(int[][] matrix, int depth, int m, int n) {
+        List<Integer> down = new ArrayList<Integer>();
+        for(int i = 1 + depth; i < m - 1 - depth; i++) {
+            down.add(matrix[i][n - 1 - depth]);            
+        }
+        return down;
+    }
+    public List<Integer> goright(int[][] matrix, int depth, int m, int n) {
+        List<Integer> right = new ArrayList<Integer>();
+        for(int i = 0 + depth; i < n - 1 - depth; i++) {
+            right.add(matrix[depth][i]);            
+        }
+        return right;
+    }
+    public List<Integer> goleft(int[][] matrix, int depth, int m, int n) {
+        List<Integer> left = new ArrayList<Integer>();
+        for(int i = n - 2 - depth; i > 0 + depth; i--) {
+            left.add(matrix[m - 1 - depth][i]);            
+        }
+        return left;
+    }
+
+    public List<Integer> add(List<Integer> ans, List<Integer> toadd) {
+        for(int i = 0; i < toadd.size(); i++) {
+            ans.add(toadd.get(i));
+        }
+        return ans;
+    }
+
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> lst = new ArrayList<Integer>();
+        int m = matrix.length;
+        int n = matrix[0].length;
+        try {
+
+            for(int i = 0; i < Math.min(m,n) - 1; i++) {
+                
+                lst = add(lst, goright(matrix, i, m, n));
+                lst = add(lst, godown(matrix, i, m, n));
+                lst = add(lst, goleft(matrix, i, m, n));
+                lst = add(lst, goup(matrix, i, m, n));
+            }
+        }
+        catch(Exception e)
+        {
+            return lst;
+        }
         
         return lst;
     }
