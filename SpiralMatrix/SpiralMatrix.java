@@ -6,28 +6,28 @@ class SpiralMatrix {
 
     public List<Integer> goup(int[][] matrix, int depth, int m, int n) {
         List<Integer> up = new ArrayList<Integer>();
-        for(int i = m - 2 - depth; i > 1 + depth; i--) {
+        for(int i = m - 2 - depth; i > depth; i--) {
             up.add(matrix[i][depth]);            
         }
         return up;
     }
     public List<Integer> godown(int[][] matrix, int depth, int m, int n) {
         List<Integer> down = new ArrayList<Integer>();
-        for(int i = 1 + depth; i < m - 1 - depth; i++) {
+        for(int i = depth + 1; i <= m - 1 - depth; i++) {
             down.add(matrix[i][n - 1 - depth]);            
         }
         return down;
     }
     public List<Integer> goright(int[][] matrix, int depth, int m, int n) {
         List<Integer> right = new ArrayList<Integer>();
-        for(int i = 0 + depth; i < n - 1 - depth; i++) {
+        for(int i = depth; i <= n - 1 - depth; i++) {
             right.add(matrix[depth][i]);            
         }
         return right;
     }
     public List<Integer> goleft(int[][] matrix, int depth, int m, int n) {
         List<Integer> left = new ArrayList<Integer>();
-        for(int i = n - 2 - depth; i > 0 + depth; i--) {
+        for(int i = n - 2 - depth; i >= depth; i--) {
             left.add(matrix[m - 1 - depth][i]);            
         }
         return left;
