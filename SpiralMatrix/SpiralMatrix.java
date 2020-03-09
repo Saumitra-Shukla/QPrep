@@ -50,7 +50,7 @@ class SpiralMatrix {
                 
                 lst = add(lst, goright(matrix, i, m, n));
                 lst = add(lst, godown(matrix, i, m, n));
-                if(m != n && i == Math.min(m,n) - 1){
+                if(m != n && i == Math.min(m,n) - 2){
                     break;
                 }
                 lst = add(lst, goleft(matrix, i, m, n));
