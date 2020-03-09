@@ -33,6 +33,7 @@ class MatrixTraversal  {
       catch(Exception e) {
         //System.out.println("-1");
         lst.add(-1);
+        break;
       }
     }
     return lst;
