@@ -6,6 +6,10 @@ class MatrixTraversal  {
   // complete the below function implementation
   public List<Integer> valueAtNewPosition(int[][] matrix, int currX, int currY, int dir, int steps) {
     List<Integer> lst = new ArrayList<Integer>();
+    if(matrix == null){
+      lst.add(-1);
+      return lst;
+    }
     while(steps > 0) {
         steps--;
       try {
@@ -24,8 +28,8 @@ class MatrixTraversal  {
           currX--;
         }
         else {
-          //System.out.println("-1");
-          break;
+          lst.add(-1);
+          return lst;
         }
         //System.out.println(matrix[currY][currX]);
         lst.add(matrix[currX][currY]);
@@ -33,7 +37,7 @@ class MatrixTraversal  {
       catch(Exception e) {
         //System.out.println("-1");
         lst.add(-1);
-        break;
+        return lst;
       }
     }
     return lst;
