@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-class MatrixTraversal  {
+class SpiralMatrix  {
     
     static int x=0,y=0;
 
@@ -103,7 +103,7 @@ class MatrixTraversal  {
     */
 
     scanner.close();
-    List<Integer> result = new MatrixTraversal().ans(matrix,n,m);
+    List<Integer> result = new SpiralMatrix().ans(matrix,n,m);
 
     for (int i = 0; i < result.size(); ++i) {
       System.out.printf("%d ", result.get(i));
