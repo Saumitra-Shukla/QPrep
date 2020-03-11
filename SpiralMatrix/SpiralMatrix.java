@@ -3,7 +3,7 @@ import java.util.*;
 
 class SpiralMatrix  {
     
-    static int x=0,y=0;
+    static int x=-1,y=-1;
 
   // complete the below function implementation
   public List<Integer> valueAtNewPosition(int[][] matrix, int currX, int currY, int dir, int steps) {
