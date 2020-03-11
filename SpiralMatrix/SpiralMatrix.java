@@ -8,29 +8,30 @@ class SpiralMatrix  {
   // complete the below function implementation
   public List<Integer> valueAtNewPosition(int[][] matrix, int currX, int currY, int dir, int steps) {
     List<Integer> lst = new ArrayList<Integer>();
+    y = currY;
+    x = currX;
     while(steps > 0) {
       try {
         if(dir == 1) {
 
-          currY++;
+          y++;
 
         }
         else if(dir == 2) {
-          currX++;
+          x++;
         }
         else if(dir ==3) {
-          currY--;
+          y--;
         }
         else if(dir ==4) {
-          currX--;
+          x--;
         }
         else {
           //System.out.println("-1");
         }
         //System.out.println(steps + "dir = " + dir);
-        lst.add(matrix[currX][currY]);
-        y = currY;
-        x = currX;
+        lst.add(matrix[x][y]);
+        
       }
       catch(Exception e) {
         //System.out.println("-1");
