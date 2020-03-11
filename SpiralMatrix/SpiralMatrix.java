@@ -3,13 +3,12 @@ import java.util.*;
 
 class SpiralMatrix  {
     
-    static int x=-1,y=-1;
+    int x=0,y=0;
 
   // complete the below function implementation
-  public List<Integer> valueAtNewPosition(int[][] matrix, int currX, int currY, int dir, int steps) {
+  public List<Integer> valueAtNewPosition(int[][] matrix, int dir, int steps) {
     List<Integer> lst = new ArrayList<Integer>();
-    y = currY;
-    x = currX;
+    
     while(steps > 0) {
       try {
         if(dir == 1) {
@@ -56,14 +55,14 @@ class SpiralMatrix  {
        m--;n--;
         while(r <= m && c <= n) {
             //right
-            lst = add(lst,valueAtNewPosition(matrix,x,y,1,n - c));
+            lst = add(lst,valueAtNewPosition(matrix,1,n - c));
             r++;
             //down
-            lst = add(lst,valueAtNewPosition(matrix,x,y,2,m - r));
+            lst = add(lst,valueAtNewPosition(matrix,2,m - r));
             n--;
             //left
             //if(m > r) {
-            lst = add(lst,valueAtNewPosition(matrix,x,y,3,n - c));
+            lst = add(lst,valueAtNewPosition(matrix,3,n - c));
             
             m--;
             //System.out.println((n-c)+"  "+(m-r));
@@ -71,7 +70,7 @@ class SpiralMatrix  {
             
             //up
             //System.out.println(x+"  "+y);
-            lst = add(lst,valueAtNewPosition(matrix,x,y,4,m - r));
+            lst = add(lst,valueAtNewPosition(matrix,4,m - r));
             //lst.add(-1);
             c++;
             
