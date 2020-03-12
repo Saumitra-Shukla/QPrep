@@ -52,7 +52,7 @@ class MessagePassing  {
     
     List<Integer> result = ans(matrix);
     int i=0;
-    int steps=1;
+    int steps=s;
     while(steps > 0)
     {
       if(i==result.size())
