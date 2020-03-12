@@ -3,75 +3,45 @@ import java.util.*;
 
 class MessagePassing  {
 
-int x=0,y=-1;
-  // complete the below function implementation
-  public List<Integer> valueAtNewPosition(int[][] matrix, int dir, int steps) {
-    List<Integer> lst = new ArrayList<Integer>();
-    
-    while(steps > 0) {
-        steps--;
-    
-        if(dir == 1) {
-          y++;
-        }
-        else if(dir == 2) {
-          x++;
-        }
-        else if(dir ==3) {
-          y--;
-        }
-        else if(dir ==4) {
-          x--;
-        }
-        else {
-          //System.out.println("-1");
-        }
-        //System.out.println(matrix[x][y]);
-        lst.add(matrix[x][y]);
-        
+  public List<Integer> add(List<Integer> ans, List<Integer> toadd) {
+    for(int i = 0; i < toadd.size(); i++) {
+        ans.add(toadd.get(i));
     }
-    return lst;
-  }
-  
-  public List<Integer> add(List<Integer> lst, List<Integer> toadd) {
-  
-      for(int i = 0; i < toadd.size(); i++)
-      {
-          lst.add(toadd.get(i));
-      }
-      return lst;
-  }
+    return ans;
+}
 
-  public List<Integer> ans(int[][] matrix , int m, int n) {
-      List<Integer> lst= new ArrayList<Integer>();
-      int r=0,c=0;
-      //m--;n--;
-      while(r < m && c < n) {
-          //right
-          lst = add(lst,valueAtNewPosition(matrix,1,n-c));
-          r++;
-          //down
-          lst = add(lst,valueAtNewPosition(matrix,2,m-r));
-          n--;
-          //left
-          if(m >r) {
-              lst = add(lst,valueAtNewPosition(matrix,3,n-c));
-              m--;
-          }
-          //up
-          //System.out.println(x+"  "+y);
-          if(n > c) {
-              lst = add(lst,valueAtNewPosition(matrix,4,m-r));
-              //lst.add(-1);
-              c++;
-          }
-          
+  public List<Integer> ans(int[][] matrix) {
+      List<Integer> lst = new ArrayList<Integer>();
+      int m = matrix.length;
+      int n = matrix[0].length;
+      
+      int i, k = 0, l = 0; 
+
+      while (k < m && l < n) { 
+          for (i = l; i < n; ++i) { 
+              lst.add(matrix[k][i]); 
+          } 
+          k++; 
+
+          for (i = k; i < m; ++i) { 
+              lst.add(matrix[i][n - 1]); 
+          } 
+          n--; 
+
+          if (k < m) { 
+              for (i = n - 1; i >= l; --i) { 
+                  lst.add(matrix[m - 1][i]); 
+              } 
+              m--; 
+          } 
+
+          if (l < n) { 
+              for (i = m - 1; i >= k; --i) { 
+                  lst.add(matrix[i][l]); 
+              } 
+              l++; 
+          } 
       }
-      
-      //x=4;y=0;
-      //System.out.println(valueAtNewPosition(matrix,4,3));
-      
-      
       
       return lst;
   }
@@ -80,7 +50,7 @@ int x=0,y=-1;
   // Print "Yes" for success and "No" for Failure
   public void messagePassTest(int n, int s, int m, int[][] matrix) {
     
-    List<Integer> result = ans(matrix,n,n);
+    List<Integer> result = ans(matrix);
     int i=0;
     int steps=1;
     while(steps > 0)
