@@ -63,6 +63,11 @@ class MessagePassing  {
       steps--;
       steps=Math.max(steps,result.get(i));
       i++;
+      if(i==result.size())
+      {
+        System.out.println("Yes");
+        return;
+      }
 
     }
     System.out.println("No");
