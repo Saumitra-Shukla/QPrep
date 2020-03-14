@@ -5,8 +5,17 @@ class NumberOfIslands {
 
     // Implement your solution by completing the below function
     public int numIslands(char[][] grid) {
-
-        return 0;
+        
+        Ones[][] gridn = new Ones[grid.length][grid[0].length];
+        
+        for(int i = 0; i < grid.length; i++) {
+            for(int j = 0; j < grid[0].length; j++) {
+                gridn[i][j].value = grid[i][j];
+                gridn[i][j].visited = 0;
+            }
+        }
+        int ans = numOnes(gridn);
+        return ans;
     }
 
     public static void main(String[] args) {
