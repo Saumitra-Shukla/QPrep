@@ -4,7 +4,7 @@
 def dfs(grid, i, j):
     if i<0 or j<0 or i>=len(grid) or j>=len(grid[0]) or grid[i][j] != '1':
         return
-    grid[i][j] = '#'
+    grid[i][j] = '2'
     dfs(grid, i+1, j)
     dfs(grid, i-1, j)
     dfs(grid, i, j+1)
@@ -31,6 +31,9 @@ if __name__ == '__main__':
     grid = []
     for i in range(n):
         r = input()
-        grid.append(r)
+        temp=[]
+        for j in r:
+            temp.append(j)
+        grid.append(temp)
     result = numIslands(grid)
     print(result)
