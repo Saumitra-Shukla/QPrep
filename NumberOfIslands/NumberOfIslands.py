@@ -31,6 +31,6 @@ if __name__ == '__main__':
     grid = []
     for i in range(n):
         r = input()
-        grid.append(Ones(r,0))
+        grid.append(r)
     result = numIslands(grid)
     print(result)
