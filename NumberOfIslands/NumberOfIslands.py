@@ -22,8 +22,6 @@ def numIslands(grid):
             if grid[i][j] == '1':
                 dfs(grid, i, j)
                 count += 1
-            elif grid[i][j]!='0':
-                return 0
     return count
 
 if __name__ == '__main__':
@@ -31,12 +29,17 @@ if __name__ == '__main__':
     n = int(row[0])
     m = int(row[1])
     grid = []
- 
+    error=0
     for i in range(n):
         r = input()
         temp=[]
         for j in r:
-            temp.append(j)
+            if j=='0' or j=='1':
+                temp.append(j)
+            else:
+                print('0')
+                error=1
         grid.append(temp)
     result = numIslands(grid)
-    print(result)
+    if error == 0:
+        print(result)
