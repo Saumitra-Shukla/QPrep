@@ -1,6 +1,6 @@
 # Implement your solution by completing the below function
 def myAtoi(s):
-    x = 0
+    x = int(s)
 
     return x
 
