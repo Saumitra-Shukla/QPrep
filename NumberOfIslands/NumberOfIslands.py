@@ -1,4 +1,5 @@
-
+import sys
+sys.setrecursionlimit(10000)
 # Implement your solution by completing the below function
 
 def dfs(grid, i, j):
