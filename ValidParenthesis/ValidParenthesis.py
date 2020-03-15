@@ -21,6 +21,9 @@ def isValid(s):
             if stack.pop() != '(':
                 return 0
             close+=1
+            
+    if open != close:
+        res=0
     return res
 
 if __name__ == '__main__':
