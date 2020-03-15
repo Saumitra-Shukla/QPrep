@@ -1,21 +1,13 @@
 # Implement your solution by completing the below function
-class Stack:
-    def __init(self):
-        self.a=[]
-    def push(self,s):
-        self.a.append(s)
-    def pop(self):
-        return self.a.pop()
-
 
 def isValid(s):
     res = 1
     open=0
     close=0
-    stack=Stack()
+    stack=[]
     for bracket in s:
         if bracket == '{' or bracket == '[' or bracket == '(':
-            stack.push(bracket)
+            stack.append(bracket)
             open+=1
         elif bracket =='}':
             if stack.pop() != '{':
