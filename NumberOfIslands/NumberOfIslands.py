@@ -34,8 +34,8 @@ if __name__ == '__main__':
     for i in range(n):
         r = input()
         temp=[]
-        for j in r:
-            temp.append(j)
+        for j in range(m):
+            temp.append(r[j])
         grid.append(temp)
 
     result = numIslands(grid)
