@@ -30,6 +30,7 @@ if __name__ == '__main__':
     row = input().split()
     n = int(row[0])
     m = int(row[1])
+
     grid = []
     for i in range(n):
         r = input()
@@ -39,4 +40,6 @@ if __name__ == '__main__':
         grid.append(temp)
 
     result = numIslands(grid)
+    if n<0 or m<0:
+        result=0
     print(result)
