@@ -39,4 +39,6 @@ if __name__ == '__main__':
         grid.append(temp)
 
     result = numIslands(grid)
+    if n<1 or m<1:
+        result=0
     print(result)
