@@ -22,7 +22,7 @@ def numIslands(grid):
             if grid[i][j] == '1':
                 dfs(grid, i, j)
                 count += 1
-            elif grid[i][j] != '0' or grid[i][j] != '1' or grid[i][j] != '#' :
+            elif grid[i][j] != '0' and grid[i][j] != '1' and grid[i][j] != '#' :
                 return 0
     return count
 
