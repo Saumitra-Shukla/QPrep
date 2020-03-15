@@ -30,15 +30,17 @@ if __name__ == '__main__':
     row = input().split()
     n = int(row[0])
     m = int(row[1])
-    grid = []
-    for i in range(n):
-        r = input()
-        temp=[]
-        for j in range(m):
-            temp.append(r[j])
-        grid.append(temp)
-
-    result = numIslands(grid)
+    
     if n<1 and m<1:
-        result=0
-    print(result)
+        print(0)
+    else:
+        grid = []
+        for i in range(n):
+            r = input()
+            temp=[]
+            for j in r:
+                temp.append(j)
+            grid.append(temp)
+    
+        result = numIslands(grid)
+        print(result)
