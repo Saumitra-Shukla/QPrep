@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-LetterCombinationsOfPhoneNumber<saumitrawork-ME_PS_DS1_51219eb8>",
+            "request": "launch",
+            "mainClass": "LetterCombinationsOfPhoneNumber",
+            "projectName": "saumitrawork-ME_PS_DS1_51219eb8"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-MatrixTraversal<saumitrawork-ME_PS_DS1_51219eb8>",
+            "request": "launch",
+            "mainClass": "MatrixTraversal",
+            "projectName": "saumitrawork-ME_PS_DS1_51219eb8"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-MergeIntervals<saumitrawork-ME_PS_DS1_51219eb8>",
+            "request": "launch",
+            "mainClass": "MergeIntervals",
+            "projectName": "saumitrawork-ME_PS_DS1_51219eb8"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-SpiralMatrix<saumitrawork-ME_PS_DS1_51219eb8>",
+            "request": "launch",
+            "mainClass": "SpiralMatrix",
+            "projectName": "saumitrawork-ME_PS_DS1_51219eb8"
+        }
+    ]
+}
